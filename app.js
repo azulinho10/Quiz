@@ -1,4 +1,4 @@
-const correctAnswers = ['D', 'C', 'A', 'B']
+const correctAnswers = ['B', 'C', 'A', 'B']
 
 const form = document.querySelector('.form')
 const paragraph = document.createElement('p')
