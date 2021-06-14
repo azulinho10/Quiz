@@ -1,9 +1,11 @@
-const correctAnswers = ['B', 'C', 'A', 'B']
 
 const form = document.querySelector('.form')
-const paragraph = document.createElement('p')
+const finalScoreContainer = document.createElement('p')
+
+const correctAnswers = ['B', 'C', 'A', 'B']
+
 let score = 0
-console.log(paragraph)
+
 form.addEventListener('submit', event => {
     event.preventDefault()
 
@@ -19,16 +21,16 @@ form.addEventListener('submit', event => {
             score += 25
         }
     })
-    form.insertAdjacentElement('afterend', paragraph)
-
-    paragraph.setAttribute('class', 'container')
-
+  
     if (score === 0) {
-        paragraph.innerHTML = `${score} ponto. Infelizmente não acertou nenhuma questão =( `
+        finalScoreContainer.innerHTML = `${score} ponto. Infelizmente não acertou nenhuma questão =( `
     } else if (score === 100) {
-        paragraph.innerHTML = `${score} pontos. Parabéns!! =)`
+        finalScoreContainer.innerHTML = `${score} pontos. Parabéns!! =)`
     } else {
-        paragraph.innerHTML = `${score} pontos`
+        finalScoreContainer.innerHTML = `${score} pontos`
     }
     score = 0
+
+    form.insertAdjacentElement('afterend', finalScoreContainer)
+    finalScoreContainer.setAttribute('class', 'container')
 })
