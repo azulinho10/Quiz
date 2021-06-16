@@ -4,8 +4,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-}
 form {
   margin-left: 50px;
 }
@@ -25,9 +23,9 @@ form {
 .text-center {
   display: flex;
   padding-top: 20px;
-
   align-items: center;
 }
+
 button {
   display: flex;
   height: 50px;
