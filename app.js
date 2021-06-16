@@ -23,34 +23,34 @@ form.addEventListener('submit', event => {
         if (userAnswer === correctAnswers[index]) {
             score += 25
         }
-              
+
     }
-    const finish = setInterval(()=>{
-        
-         finalScore.textContent = `${counter}%`
-        
-         if(counter === score) {
-             clearInterval(finish)
-         } 
+    const finish = setInterval(() => {
+
+        finalScore.textContent = `${counter}%`
+
+        if (counter === score) {
+            clearInterval(finish)
+        }
         counter++
-            
-    },20)
+
+    }, 20)
 
     userAnswers.forEach(incrementCounterQuestionsCorrect)
-    scrollTo(0,0)
-    
+    scrollTo(0, 0)
+
     if (score === 0) {
         finalScoreContainer.innerHTML = `
          Infelizmente não acertou nenhuma questão =( `
     } else if (score === 100) {
         finalScoreContainer.innerHTML = `  
         Parabéns =)`
-    } 
+    }
     // score = 0
 
     form.insertAdjacentElement('afterend', finalScoreContainer)
     finalScoreContainer.setAttribute('class', 'container-message-score')
-      
+
     form.classList.add('form')
 })
 
