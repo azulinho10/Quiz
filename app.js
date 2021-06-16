@@ -1,10 +1,12 @@
 
-const form = document.querySelector('.form')
+const form = document.querySelector('form')
 const finalScoreContainer = document.createElement('p')
+const finalScore = document.querySelector('.score')
 
 const correctAnswers = ['B', 'C', 'A', 'B']
 
 let score = 0
+let counter = 0
 
 form.addEventListener('submit', event => {
     event.preventDefault()
@@ -16,21 +18,39 @@ form.addEventListener('submit', event => {
         form.inputQuestion4.value
     ]
 
-    userAnswers.forEach((userAnswer, index) => {
+
+    const incrementCounterQuestionsCorrect = (userAnswer, index) => {
         if (userAnswer === correctAnswers[index]) {
             score += 25
         }
-    })
-  
-    if (score === 0) {
-        finalScoreContainer.innerHTML = `${score} ponto. Infelizmente não acertou nenhuma questão =( `
-    } else if (score === 100) {
-        finalScoreContainer.innerHTML = `${score} pontos. Parabéns!! =)`
-    } else {
-        finalScoreContainer.innerHTML = `${score} pontos`
+              
     }
-    score = 0
+    const finish = setInterval(()=>{
+        
+         finalScore.textContent = `${counter}%`
+        
+         if(counter === score) {
+             clearInterval(finish)
+         } 
+        counter++
+            
+    },20)
+
+    userAnswers.forEach(incrementCounterQuestionsCorrect)
+    scrollTo(0,0)
+    
+    if (score === 0) {
+        finalScoreContainer.innerHTML = `
+         Infelizmente não acertou nenhuma questão =( `
+    } else if (score === 100) {
+        finalScoreContainer.innerHTML = `  
+        Parabéns =)`
+    } 
+    // score = 0
 
     form.insertAdjacentElement('afterend', finalScoreContainer)
-    finalScoreContainer.setAttribute('class', 'container')
+    finalScoreContainer.setAttribute('class', 'container-message-score')
+      
+    form.classList.add('form')
 })
+
