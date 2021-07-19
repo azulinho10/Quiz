@@ -46,7 +46,7 @@ form.addEventListener('submit', event => {
         finalScoreContainer.innerHTML = `  
         Parabéns =)`
     }
-    // score = 0
+
 
     form.insertAdjacentElement('afterend', finalScoreContainer)
     finalScoreContainer.setAttribute('class', 'container-message-score')
